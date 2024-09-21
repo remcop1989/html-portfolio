@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flexbox Pricing Table</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Sono", sans-serif;
+        font-size: 16px;
+      }
+
+      .pricing-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        gap: 40px;
+        flex-flow: row nowrap;
+        text-align: center;
+        /* flex-flow is hier niet nodig. Immers wil je niet wrappen. Text-align kan ook in de .pricing-planf */
+      }
+
+      .pricing-plan {
+        background-color: lightgray;
+        flex-basis: 400px;
+        /* gebruik max-width hier beter. Dit bied een stabielere breedte */
+        padding: 10px;
+        flex: 1; 
+        /* flex: 1; maakt alle 3 de vakken gelijk in breedte */
+      }
+
+      .plan-button {
+        background-color: orange;
+        border: 0px solid orange;
+        color: white;
+        border-radius: 10px;
+        height: 40px;
+        width: 80px;
+      }
+
+      .plan-title{
+        font-size: 2em;
+      }
+
+      .plan-price {
+        font-size: 3em;
+        font-weight: bold;
+      }
+
+      /* Hint: What can you do with a media query and flexbox? */
+      @media (max-width: 1250px) {
+        .pricing-container {
+          flex-direction: column;
+          /* flex-wrap: nowrap; --> niet nodig, wrappen is nvt gezien content niet overloopt */
+          /* flex-flow: column; --> overbodig. Is flex-direction en flexwrap in 1 */
+          /* justify-content: center; --> wordt hierboven al gedaan dus hoeft hier niet nogmaals
+          align-items: center; --> wordt hierboven al gedaan dus hoeft hier niet nogmaals */
+          padding: 30px;
+          /* height: 200vh; --> beter is 100% te pakken. vh gaat alleen over het voor gebruiker zichtbare deel vh scherm */
+        }
+      }
+      
+    </style>
+  </head>
+
+  <body>
+    <div class="pricing-container">
+      <div class="pricing-plan">
+        <div class="plan-title">Basic</div>
+        <div class="plan-price">$9.99/month</div>
+        <ul class="plan-features">
+          <p>✅ 10GB Storage</p>
+          <p>✅ 1 User</p>
+          <p>🚫 Support</p>
+        </ul>
+        <button class="plan-button">Sign Up</button>
+      </div>
+      <div class="pricing-plan">
+        <div class="plan-title">Standard</div>
+        <div class="plan-price">$19.99/month</div>
+        <ul class="plan-features">
+          <p>✅ 50GB Storage</p>
+          <p>✅ 5 Users</p>
+          <p>✅ Phone &amp; Email Support</p>
+        </ul>
+        <button class="plan-button">Sign Up</button>
+      </div>
+      <div class="pricing-plan">
+        <div class="plan-title">Premium</div>
+        <div class="plan-price">$49.99/month</div>
+        <ul class="plan-features">
+          <p>✅ 100GB Storage</p>
+          <p>✅ 10 Users</p>
+          <p>✅ 24/7 Support</p>
+        </ul>
+        <button class="plan-button">Sign Up</button>
+      </div>
+    </div>
+  </body>
+</html>
